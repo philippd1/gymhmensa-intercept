@@ -1,0 +1,258 @@
+(function(a, v, q, P) {
+    var c = {
+        safeWindow: {},
+        safeDocument: {},
+        eval: eval,
+        Context: {
+            D: P
+        },
+        exec_fn: function(a, b, c) {
+            g(new y.Function(a), b, c)
+        },
+        exec_csp: function(a, b, g) {
+            var T = "__u__" + (19831206 * c.Context.M_r() + 1);
+            c.Message.send("csp", {
+                id: T,
+                src: a
+            });
+            c.exec_script(T, b, g)
+        },
+        exec_script: function(b, c, u) {
+            var T = a[b];
+            delete a[b];
+            g(T, c, u)
+        }
+    }, g, b, x, H, t, G, z, B, u, ba, y = c.safeWindow;
+    (function() {
+        var d = function(a) {
+            var b = function(b) {
+                return g(a, b, g(x.wrappedJSObject, arguments, [1]))
+            };
+            b.wrappedJSObject = a;
+            return b
+        }
+          , e = function(a, b) {
+            for (var c; null !== a && void 0 !== a && !(c = z(a, b)); )
+                a = G(a);
+            return c
+        }
+          , fa = {
+            i_N: B = function() {
+                return function(a) {
+                    return !("prototype"in a)
+                }
+            }(),
+            i_SS: u = function() {
+                return function(a, b, c) {
+                    var d = e(a, b);
+                    if (!d || !d.set || B(d.set))
+                        return a[b] = c,
+                        !0
+                }
+            }(),
+            i_SG: ba = function() {
+                return function(a, b) {
+                    var c = e(a, b);
+                    if (!c || !c.get || B(c.get))
+                        return a[b]
+                }
+            }(),
+            F_a: g = function() {
+                "use strict";
+                var b = a.Function.apply;
+                return function(a, c, d) {
+                    var e;
+                    ba(a, "apply") === b ? e = a.apply(c, d) : u(a, q, b) && (e = a[q](c, d),
+                    delete a[q]);
+                    return e
+                }
+            }(),
+            E_u: function(b, d) {
+                if (c.exec_eval) {
+                    var e = "__u__" + (19831206 * c.Context.M_r() + 1)
+                      , g = e + "_";
+                    a[g] = d;
+                    var u = c.Context.F_c(c.Context.eval, a, "(function() {" + b + '}).apply(window["' + g + '"])');
+                    delete a[e];
+                    delete a[g];
+                    return u
+                }
+                c.exec_csp(b, d)
+            },
+            E_c: function(a, b) {
+                c.exec_eval ? g(new y.Function(a), b) : c.exec_csp(a, b)
+            },
+            F_c: d(a.Function.call),
+            F_b: b = d(a.Function.bind),
+            F_tS: d(a.Function.toString),
+            A_fE: d(a.Array.prototype.forEach),
+            A_sl: x = d(a.Array.prototype.slice),
+            A_sp: d(a.Array.prototype.splice),
+            A_sh: d(a.Array.prototype.shift),
+            A_j: d(a.Array.prototype.join),
+            A_pu: d(a.Array.prototype.push),
+            A_po: d(a.Array.prototype.pop),
+            A_m: d(a.Array.prototype.map),
+            A_c: d(a.Array.prototype.concat),
+            A_f: d(a.Array.prototype.filter),
+            A_iO: d(a.Array.prototype.indexOf),
+            O_k: a.Object.keys,
+            O_dP: a.Object.defineProperties,
+            O_dPy: a.Object.defineProperty,
+            O_gOPN: a.Object.getOwnPropertyNames,
+            O_gOPD: z = a.Object.getOwnPropertyDescriptor,
+            O_gOPDs: a.Object.getOwnPropertyDescriptors || function(a) {
+                var b = {}, c;
+                for (c in a)
+                    b[c] = fa.O_gOPD(a, c);
+                return b
+            }
+            ,
+            O_gPO: G = a.Object.getPrototypeOf,
+            O_tS: d(a.Object.prototype.toString),
+            J_p: t = a.JSON.parse,
+            J_s: H = a.JSON.stringify,
+            c_l: a.console.log.bind(a.console),
+            c_i: a.console.info.bind(a.console),
+            c_w: a.console.warn.bind(a.console),
+            c_e: a.console.error.bind(a.console),
+            c_d: a.console.debug.bind(a.console),
+            M_f: a.Math.floor,
+            M_r: a.Math.random,
+            M_m: a.Math.max,
+            N_tS: d(a.Number.prototype.toString),
+            P_r: a.Promise ? a.Promise.resolve.bind(a.Promise) : void 0,
+            P_t: a.Promise ? d(a.Promise.prototype.then) : void 0,
+            P_c: a.Promise ? d(a.Promise.prototype.catch) : void 0,
+            R_rAAB: a.FileReader ? d(a.FileReader.prototype.readAsArrayBuffer) : void 0,
+            S_fCC: a.String.fromCharCode,
+            S_m: d(a.String.prototype.match),
+            S_su: d(a.String.prototype.substr),
+            S_se: d(a.String.prototype.search),
+            S_sp: d(a.String.prototype.split),
+            S_r: d(a.String.prototype.replace),
+            S_cCA: d(a.String.prototype.charCodeAt),
+            S_tLC: d(a.String.prototype.toLowerCase),
+            S_tUC: d(a.String.prototype.toUpperCase),
+            D_pFS: d(a.DOMParser.prototype.parseFromString),
+            X_o: d(a.XMLHttpRequest.prototype.open),
+            X_sRH: d(a.XMLHttpRequest.prototype.setRequestHeader),
+            X_oMT: d(a.XMLHttpRequest.prototype.overrideMimeType),
+            X_gARH: d(a.XMLHttpRequest.prototype.getAllResponseHeaders),
+            X_gRH: d(a.XMLHttpRequest.prototype.getResponseHeader),
+            X_s: d(a.XMLHttpRequest.prototype.send),
+            X_a: d(a.XMLHttpRequest.prototype.abort),
+            D_n: a.Date.now
+        };
+        Object.keys(fa).forEach(function(a) {
+            c.Context[a] = fa[a]
+        });
+        "String Array Object Number parseInt JSON Math Date Event MutationEvent console location Error Uint8Array Blob FileReader DOMParser XMLHttpRequest Function RegExp frames self top document location Promise".split(" ").forEach(function(b) {
+            y[b] = a[b]
+        });
+        "postMessage addEventListener removeEventListener setTimeout setInterval clearTimeout clearInterval alert prompt confirm encodeURIComponent decodeURIComponent encodeURI decodeURI escape unescape atob btoa close".split(" ").forEach(function(b) {
+            var c = a[b];
+            y[b] = function() {
+                return g(c, a, arguments)
+            }
+        });
+        c.createSafeDocument = function(a) {
+            "getElementById createEvent createElement dispatchEvent addEventListener removeEventListener".split(" ").forEach(function(b) {
+                var d = a[b];
+                c.safeDocument[b] = function() {
+                    return g(d, a, arguments)
+                }
+            })
+        }
+        ;
+        c.createSafeDocument(v)
+    }
+    )();
+    try {
+        c.Message = function(a, b) {
+            var c = function() {
+                return g(b.dispatchEvent, b, arguments)
+            }, u = function() {
+                return g(b.addEventListener, b, arguments)
+            }, q = function() {
+                return g(b.removeEventListener, b, arguments)
+            }, y = function(a, c) {
+                var d = b.createEvent("MutationEvent");
+                d.initMutationEvent(a, !1, !1, null, null, null, H(c), d.ADDITION);
+                return d
+            }, x = function(a, b) {
+                var c;
+                a && (c = I[a]) && (c(b),
+                delete I[a])
+            }, Q, v, z, G, r = 1, I = {}, R = function(a) {
+                var b = t(a.attrName);
+                "message.response" == b.m ? x(b.r, b.a) : Q && Q(b, b.r ? function(a) {
+                    a = y(z, {
+                        m: "message.response",
+                        a: a,
+                        r: b.r
+                    });
+                    c(a)
+                }
+                : function() {}
+                )
+            };
+            return {
+                init: function(a) {
+                    G || (G = a);
+                    z = "2C_" + G;
+                    v = "2P_" + G;
+                    u(v, R, !1)
+                },
+                send: function(a, b, d) {
+                    if (d) {
+                        var e = ++r;
+                        I[r] = d;
+                        d = e
+                    } else
+                        d = null;
+                    a = y(z, {
+                        m: a,
+                        a: b,
+                        r: d
+                    });
+                    c(a)
+                },
+                onMessage: {
+                    setListener: function(a) {
+                        Q = a
+                    }
+                },
+                cleanup: function() {
+                    R && q(v, R, !1);
+                    R = null
+                }
+            }
+        }(y, c.safeDocument),
+        c.Message.init(q),
+        c.Message.onMessage.setListener(function(d) {
+            if (c)
+                if ("load" == d.m)
+                    c.Context.pageLoaded = !0;
+                else if ("DOMContentLoaded" == d.m)
+                    c.Context.domContentLoaded = !0;
+                else if ("cleanup" == d.m)
+                    c.Message.cleanup(),
+                    c = null;
+                else if ("next" == d.m)
+                    if (d.a.id)
+                        c.exec_script(d.a.id, c),
+                        c.exec_eval = !1;
+                    else {
+                        if (void 0 === c.exec_eval)
+                            try {
+                                c.exec_eval = b(c.eval, a)("true")
+                            } catch (e) {
+                                c.exec_eval = !1
+                            }
+                        c.exec_eval ? c.exec_fn(d.a.src, c) : c.exec_csp(d.a.src, c)
+                    }
+        })
+    } catch (d) {}
+}
+)(window, document, "6d6ca9f9-f98b-47e2-9a1a-30c9a0948a01", undefined);
